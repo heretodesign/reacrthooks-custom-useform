@@ -1,3 +1,6 @@
+
+
+=============================================== form.js =============================
 import React from 'react';
 import { Button, Columns, Navbar, Header} from "react-bulma-components/full"
 import 'react-bulma-components/dist/react-bulma-components.min.css'
@@ -5,13 +8,13 @@ import useForm from '../formContainer/useForm'
 
 const Form = () => {
 
-  const register = e => {
+  //import the value input from the useState & destructure
+  const [values, handleChange] = useForm();
+
+  const handleSubmit = e => {
+    e.preventDefault();
     console.log(values);
   }
-
-  //array destructuring
-  const [values, handleChange, handleSubmit] = useForm(register);
-
 
     return (
       <>
@@ -85,3 +88,29 @@ const Form = () => {
 
 
 export default Form;
+
+====================================================================================
+
+
+
+===================================   usefrom.js =======================================================
+
+
+import React, {useState} from 'react';
+import { Button, Columns, Navbar, Header} from "react-bulma-components/full"
+import 'react-bulma-components/dist/react-bulma-components.min.css'
+
+const useForm = () => {
+
+
+  const [state, setState] = useState({});
+
+  const handleChange = e => {
+    e.persist();
+    setState(state => ({ ...state, [e.target.name]: e.target.value }));
+  }
+
+  return [state, handleChange];
+}
+
+export default useForm;
