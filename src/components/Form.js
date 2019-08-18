@@ -28,7 +28,7 @@ const Form = () => {
                                 <input className="input is-large" type="text"
                                   name="title"
                                   placeholder="Add Bulletin Title"
-                                  value={values.title}
+                                  value={values.title || ""}
                                   onChange={handleChange}  />
                               </div>
                             </div>
@@ -41,7 +41,7 @@ const Form = () => {
                                 <input className="input is-large" type="text"
                                   name="date"
                                   placeholder="Date Held"
-                                  value={values.date}
+                                  value={values.date || ""}
                                   onChange={handleChange}  />
                               </div>
                             </div>
@@ -54,7 +54,7 @@ const Form = () => {
                                 <textarea className="textarea is-large" type="text"
                                   name="content"
                                   placeholder="Contents"
-                                  value={values.content}
+                                  value={values.content || ""}
                                   onChange={handleChange} />
                               </div>
                             </div>
